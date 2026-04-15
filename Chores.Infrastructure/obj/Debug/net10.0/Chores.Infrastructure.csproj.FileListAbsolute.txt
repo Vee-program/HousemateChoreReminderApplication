@@ -1,0 +1,15 @@
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\bin\Debug\net10.0\Chores.Infrastructure.deps.json
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\bin\Debug\net10.0\Chores.Infrastructure.dll
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\bin\Debug\net10.0\Chores.Infrastructure.pdb
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\bin\Debug\net10.0\Chores.Core.dll
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\bin\Debug\net10.0\Chores.Core.pdb
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.AssemblyInfo.cs
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.I.2BD13B8A.Up2Date
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.dll
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\refint\Chores.Infrastructure.dll
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\Chores.Infrastructure.pdb
+C:\Users\Student\OneDrive\Documentos\HousemateChoreReminder\Chores.Infrastructure\obj\Debug\net10.0\ref\Chores.Infrastructure.dll

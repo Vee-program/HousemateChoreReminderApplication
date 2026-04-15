@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="../Chores.Core/Chores.Core.csproj" Id="4883be61-cb8a-4f44-a326-e05de134f07f" />
+  <Project Path="../Chores.Infrastructure/Chores.Infrastructure.csproj" Id="daef9268-2533-4063-a5bf-85f43c0f318d" />
+  <Project Path="HousemateChoreReminderAPI.csproj" />
+</Solution>
