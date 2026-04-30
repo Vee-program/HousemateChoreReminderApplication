@@ -2,10 +2,12 @@
 using Chores.Core.Interfaces;
 using HousemateChoreReminderAPI.Chores.API.DTOs.Chore;
 using HousemateChoreReminderAPI.Chores.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousemateChoreReminderAPI.Chores.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ChoreController : ControllerBase
@@ -34,6 +36,9 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
             return Ok(response);
         }
 
+
+        [Authorize(Roles = "Admin")]
+
         [HttpPost]
         public async Task<IActionResult> AddChore([FromBody] ChoreCreateDTO dto)
         {
@@ -56,6 +61,8 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [Authorize(Roles = "Admin")]
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateChore(int id, [FromBody] ChoreUpdateDTO dto)
@@ -82,7 +89,9 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
             }
         }
 
-            [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+
+        [HttpDelete("{id}")]
             public async Task<IActionResult> DeleteChore(int id) {
 
 

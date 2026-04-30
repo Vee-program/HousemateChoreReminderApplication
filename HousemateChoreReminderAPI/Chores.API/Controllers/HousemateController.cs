@@ -2,11 +2,14 @@
 using HousemateChoreReminderAPI.Chores.API.DTOs;
 using HousemateChoreReminderAPI.Chores.API.DTOs.Housemate;
 using HousemateChoreReminderAPI.Chores.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace HousemateChoreReminderAPI.Chores.API.Controllers
 {
+    [Authorize]
+
     [ApiController]
     [Route("api/[controller]")]
     public class HousematesController : ControllerBase
@@ -17,6 +20,9 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
         {
             _housemateService = housemateService;
         }
+
+
+        [Authorize(Roles = "Admin")]
 
         [HttpGet]
         public async Task<IActionResult> GetAllHousemates()
@@ -47,7 +53,7 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
 
                 };
 
-                return Ok(housemate);
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -55,6 +61,8 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
             }
 
         }
+
+        [Authorize(Roles = "Admin")]
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateHousemate(int id, [FromBody] HousemateUpdateDTO dto)
@@ -78,6 +86,9 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
                 }
             }
         }
+
+        [Authorize(Roles = "Admin")]
+
         [HttpPatch("{id}/make-admin")]
         public async Task<IActionResult> TransferAdmin(int id)
         {
@@ -91,6 +102,8 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [Authorize(Roles = "Admin")]
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHousemate(int id)

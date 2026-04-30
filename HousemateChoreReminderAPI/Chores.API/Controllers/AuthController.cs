@@ -28,7 +28,7 @@ namespace HousemateChoreReminderAPI.Chores.API.Controllers
                 };
 
                 var result = await _authService.Register(housemate, dto.Password);
-                return Ok(new { message = result });
+                return StatusCode (201, new { message = result }); //when something is successfully created use 201
             }
             catch (Exception ex)
             {

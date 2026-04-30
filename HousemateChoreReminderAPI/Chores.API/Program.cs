@@ -1,9 +1,11 @@
 using Chores.Core.Interfaces;
 using Chores.Core.Services;
 using Chores.Infrastructure.Repositories;
+using Chores.Infrastructure.Services;
+using Hangfire;
 using HousemateChoreReminderAPI.Chores.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -26,6 +28,16 @@ builder.Services.AddScoped<IReminderRepository, ReminderRepository>();
 builder.Services.AddScoped<IChoreService, ChoreService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IHousemateService, HousemateService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
+builder.Services.AddScoped<IReminderService, ReminderService>();
+builder.Services.AddScoped<IWhatsAppService, WhatsAppService>();
+
+//Stores jobs in sql server and starts a background worker within the app
+builder.Services.AddHangfire(config =>
+    config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddHangfireServer();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -65,6 +77,17 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseHangfireDashboard();
+RecurringJob.AddOrUpdate<IReminderService>(
+    "send-pending-reminders",
+    service => service.SendingPendingReminders(),
+    Cron.Hourly);
+
+RecurringJob.AddOrUpdate<IAssignmentService>(
+    "mark-overdue-assignments",
+    service => service.MarkOverdueAssignments(),
+    Cron.Hourly);
 
 app.MapControllers();
 

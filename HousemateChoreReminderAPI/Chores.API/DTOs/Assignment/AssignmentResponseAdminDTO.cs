@@ -2,7 +2,7 @@
 
 namespace HousemateChoreReminderAPI.Chores.API.DTOs.Assignment
 {
-    public class AssignmentResponse
+    public class AssignmentResponseAdminDTO
     {
         public int Id { get; set; }
 
